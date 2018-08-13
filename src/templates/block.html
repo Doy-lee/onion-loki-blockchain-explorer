@@ -1,44 +1,44 @@
 
-<div>
-
-    <H4>Block hash (height): {{blk_hash}} ({{blk_height}})</H4>
+<div class="Wrapper">
+    <H4>Block Hash (height): {{blk_hash}} ({{blk_height}})</H4>
 
 
     {{#have_prev_hash}}
-    <H5>Previous block: <a href="/block/{{prev_hash}}">{{prev_hash}}</a></H5>
+    <p>Previous Block: <a href="/block/{{prev_hash}}">{{prev_hash}}</a></p>
     {{/have_prev_hash}}
 
     {{#have_next_hash}}
-    <H5>Next block: <a href="/block/{{next_hash}}">{{next_hash}}</a></H5>
+    <p>Next Block: <a href="/block/{{next_hash}}">{{next_hash}}</a></p>
     {{/have_next_hash}}
 
-
-
-    <table class="center">
+    <h2>Metadata</h2>
+    <div class="TitleDivider"></div>
+    <table class="Table">
         <tr>
             <td>Timestamp [UCT] (epoch):</td><td>{{blk_timestamp}} ({{blk_timestamp_epoch}})</td>
             <td>Age {{age_format}}:</td><td>{{blk_age}}</td>
             <td>Δ [h:m:s]:</td><td>{{delta_time}}</td>
         </tr>
         <tr>
-            <td>Major.minor version:</td><td>{{major_ver}}.{{minor_ver}}</td>
-            <td>Block reward:</td><td>{{blk_reward}}</td>
-            <td>Block size [kB]:</td><td>{{blk_size}}</td>
+            <td>Major.Minor Version:</td><td>{{major_ver}}.{{minor_ver}}</td>
+            <td>Block Reward:</td><td>{{blk_reward}}</td>
+            <td>Block Size [kB]:</td><td>{{blk_size}}</td>
         </tr>
         <tr>
-            <td>nonce:</td><td>{{blk_nonce}}</td>
-            <td>Total fees:</td><td>{{sum_fees}}</td>
-            <td>No of txs:</td><td>{{no_txs}}</td>
+            <td>Nonce:</td><td>{{blk_nonce}}</td>
+            <td>Total Fees:</td><td>{{sum_fees}}</td>
+            <td>No Of TXs:</td><td>{{no_txs}}</td>
         </tr>
     </table>
 
-    <h3>Miner reward transaction</h3>
-    <table class="center">
-        <tr>
-            <td>hash</td>
-            <td>outputs</td>
-            <td>size [kB]</td>
-            <td>version</td>
+    <h2>Miner Reward Transaction</h3>
+    <div class="TitleDivider"></div>
+    <table class="Table">
+        <tr class="TableHeader">
+            <td>Hash</td>
+            <td>Outputs</td>
+            <td>Size [kB]</td>
+            <td>Version</td>
         </tr>
         {{#coinbase_txs}}
             <tr>
@@ -53,17 +53,18 @@
 
 
 
-    <h3>Transactions ({{no_txs}})</h3>
+    <h2>Transactions ({{no_txs}})</h2>
+    <div class="TitleDivider"></div>
     {{#have_txs}}
-        <table class="center" style="width:80%">
-            <tr>
-                <td>hash</td>
-                <td>outputs</td>
-                <td>fee</td>
-                <td>ring size</td>
-                <td>in/out</td>
-                <td>size [kB]</td>
-                <td>version</td>
+        <table class="Table">
+            <tr class="TableHeader">
+                <td>Hash</td>
+                <td>Outputs</td>
+                <td>Fee</td>
+                <td>Ring Size</td>
+                <td>In/Out</td>
+                <td>Size [kB]</td>
+                <td>Version</td>
             </tr>
             {{#blk_txs}}
                 <tr>

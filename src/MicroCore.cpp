@@ -15,7 +15,7 @@ namespace
 }
 
 
-namespace xmreg
+namespace lokeg
 {
 /**
  * The constructor is interesting, as
@@ -31,7 +31,8 @@ namespace xmreg
  */
 MicroCore::MicroCore():
         m_mempool(m_blockchain_storage),
-        m_blockchain_storage(m_mempool)
+        m_blockchain_storage(m_mempool, m_service_node_list, m_deregister_vote_pool),
+        m_service_node_list(m_blockchain_storage)
 {
     m_device = &hw::get_device("default");
 }
@@ -173,7 +174,7 @@ MicroCore::get_tx(const string& tx_hash_str, transaction& tx)
     // parse tx hash string to hash object
     crypto::hash tx_hash;
 
-    if (!xmreg::parse_str_secret_key(tx_hash_str, tx_hash))
+    if (!lokeg::parse_str_secret_key(tx_hash_str, tx_hash))
     {
         cerr << "Cant parse tx hash: " << tx_hash_str << endl;
         return false;

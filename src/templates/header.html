@@ -6,7 +6,7 @@
     {{#refresh}}
         <meta http-equiv="refresh" content="10">
     {{/refresh}}
-    <title>Onion Monero Blockchain Explorer</title>
+    <title>Loki Blockchain Explorer</title>
     <!--<link rel="stylesheet" type="text/css" href="/css/style.css">-->
     <style type="text/css">
         {{#css_styles}}{{/css_styles}}
@@ -16,20 +16,15 @@
 
 </head>
 <body>
-<div>
-
-    <div class="center">
-        <h1 class="center"><a href="/">Onion Monero Blockchain Explorer</a></h1>
-        <h4 style="font-size: 15px; margin: 0px">({{^enable_js}}no javascript - {{/enable_js}}no cookies - no web analytics trackers - no images - open sourced)</h4>
-    </div>
-
-
-    <div class="center">
-        <form action="/search" method="get" style="width:100%; margin-top:15px" class="style-1">
+<div class="Wrapper">
+    <div>
+        <h1 class="Header"><a href="/">Loki Blockchain Explorer</a></h1>
+        <h4 class="Subtitle" style="margin-bottom: 0px">({{^enable_js}}No Javascript | {{/enable_js}}No Cookies | No Web Analytics Trackers | No Images | Open Sourced)</h4>
+        <form action="/search" method="get" style="width: 100%; margin-top:15px; margin-bottom: 1em;" class="style-1">
             <input type="text" name="value" size="120"
-                   placeholder="block height, block hash, transaction hash">
-            <input type="submit" value="Search">
+                   placeholder="Block Height, Block Hash, Transaction Hash">
+            <input type="submit" class="PageButton" value="Search">
         </form>
+        <div class="TitleDivider" style="margin-bottom: 1em"></div>
     </div>
-
 </div>

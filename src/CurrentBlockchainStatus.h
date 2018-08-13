@@ -2,20 +2,16 @@
 // Created by mwo on 16/05/17.
 //
 
-#ifndef XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
-#define XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#ifndef LOKBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#define LOKBLOCKS_CURRENTBLOCKCHAINSTATUS_H
 
+#include "mstch/mstch.hpp"
+#include "loki_headers.h"
 #include "MicroCore.h"
 
 #include <boost/algorithm/string.hpp>
 
-#include <iostream>
-#include <memory>
-#include <thread>
-#include <mutex>
-#include <atomic>
-
-namespace xmreg
+namespace lokeg
 {
 
 using namespace std;
@@ -40,10 +36,16 @@ struct CurrentBlockchainStatus
         operator
         std::string() const
         {
-            return to_string(blk_no) + "," + to_string(coinbase)
-                   + "," + to_string(fee) + "," + to_string(checksum());
+            return to_string(blk_no) + ","
+                 + to_string(coinbase) + ","
+                 + to_string(fee) + ","
+                 + to_string(checksum());
         }
     };
+
+    static uint64_t circulating_supply;
+    static uint64_t circulating_supply_calc_from_height;
+    static bool     circulating_supply_is_accurate;
 
     static bf::path blockchain_path;
 
@@ -51,7 +53,7 @@ struct CurrentBlockchainStatus
 
     static string output_file;
 
-    static string deamon_url;
+    static string daemon_url;
 
     // how many blocks to read before thread goes to sleep
     static uint64_t blockchain_chunk_size;
@@ -111,4 +113,4 @@ struct CurrentBlockchainStatus
 
 }
 
-#endif //XMRBLOCKS_CURRENTBLOCKCHAINSTATUS_H
+#endif //LOKBLOCKS_CURRENTBLOCKCHAINSTATUS_H

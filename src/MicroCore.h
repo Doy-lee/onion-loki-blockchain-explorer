@@ -2,15 +2,15 @@
 // Created by mwo on 5/11/15.
 //
 
-#ifndef XMREG01_MICROCORE_H
-#define XMREG01_MICROCORE_H
+#ifndef LOKEG01_MICROCORE_H
+#define LOKEG01_MICROCORE_H
 
 #include <iostream>
 
-#include "monero_headers.h"
+#include "loki_headers.h"
 #include "tools.h"
 
-namespace xmreg
+namespace lokeg
 {
     using namespace cryptonote;
     using namespace crypto;
@@ -28,8 +28,10 @@ namespace xmreg
 
         string blockchain_path;
 
-        tx_memory_pool m_mempool;
         Blockchain m_blockchain_storage;
+        tx_memory_pool m_mempool;
+        service_nodes::service_node_list m_service_node_list;
+        loki::deregister_vote_pool m_deregister_vote_pool;
 
         hw::device* m_device;
 
@@ -88,4 +90,4 @@ namespace xmreg
 
 
 
-#endif //XMREG01_MICROCORE_H
+#endif //LOKEG01_MICROCORE_H

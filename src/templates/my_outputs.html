@@ -1,54 +1,53 @@
 
-<div>
-
-    <H4 style="margin:5px">Tx hash: <a href="/tx/{{tx_hash}}">{{tx_hash}}</a></H4>
-    <H5 style="margin:5px">Tx public key: {{tx_pub_key}}</H5>
-
-
+<div class="Wrapper">
+    <H4 style="margin:5px">TX Hash: <a href="/tx/{{tx_hash}}">{{tx_hash}}</a></H4>
+    <h4 style="margin:5px">TX Public Key: {{tx_pub_key}}</h4>
     {{#has_payment_id}}
-        <H5 style="margin:5px">Payment id: {{payment_id}}</H5>
+        <h4 style="margin:5px">Payment ID: {{payment_id}}</h4>
     {{/has_payment_id}}
 
     {{#has_payment_id8}}
         {{^decrypted_payment_id8}}
-            <H5 style="margin:5px">Payment id (encrypted): {{payment_id8}}</H5>
+            <h4 style="margin:5px">Payment ID (Encrypted): {{payment_id8}}</h4>
         {{/decrypted_payment_id8}}
         {{#decrypted_payment_id8}}
-            <H5 style="margin:5px">Payment id (decrypted): {{decrypted_payment_id8}}
-                (value incorrect if you are not the recipient of the tx)</H5>
+            <h4 style="margin:5px">Payment ID (Decrypted): {{decrypted_payment_id8}}
+                (Value incorrect if you are not the recipient of the TX)</h4>
         {{/decrypted_payment_id8}}
     {{/has_payment_id8}}
 
 
-    <table class="center" style="width: 80%; margin-top:10px">
+    <h2>Metadata</h2>
+    <div class="TitleDivider"></div>
+    <table class="Table" style="margin-top:10px">
         <tr>
             <td>Block: {{blk_height}}</td>
             <td>Timestamp [UCT]: {{blk_timestamp}}</td>
             <td>Age [y:d:h:m:s]: {{delta_time}}</td>
             <td>Fee: {{tx_fee}}</td>
-            <td>Tx size: {{tx_size}} kB</td>
+            <td>TX Size: {{tx_size}} kB</td>
         </tr>
-
     </table>
 
     {{^tx_prove}}
-        <h3>Checking which outputs belong to the given address and viewkey</h3>
-        <h5>address: {{xmr_address}}</h5>
-        <h5>viewkey: {{viewkey}}</h5>
+        <p>Checking which outputs belong to the given address and viewkey</p>
+        <p>Address: {{lok_address}}</p>
+        <p>Viewkey: {{viewkey}}</p>
     {{/tx_prove}}
     {{#tx_prove}}
-        <h3>Prove that you send this tx to the given address</h3>
-        <h5>address: {{xmr_address}}</h5>
-        <h5>Tx private key: {{viewkey}}</h5>
+        <p>Prove that you send this tx to the given address</p>
+        <p>Address: {{lok_address}}</p>
+        <p>TX Private Key: {{viewkey}}</p>
     {{/tx_prove}}
 
-    <h3>Outputs ({{outputs_no}})</h3>
-    <div class="center">
-        <table class="center" >
-            <tr>
-                <td>output public key</td>
-                <td>amount</td>
-                <td>output match?</td>
+    <h2>Outputs ({{outputs_no}})</h2>
+    <div class="TitleDivider"></div>
+    <div>
+        <table class="Table" >
+            <tr class="TableHeader">
+                <td>Output Public Key</td>
+                <td>Amount</td>
+                <td>Output Match?</td>
             </tr>
             {{#outputs}}
             <tr>
@@ -68,19 +67,18 @@
             {{/outputs}}
         </table>
 
-        <h3>
-            Sum XMR from matched outputs (i.e., incoming XMR):
+        <p>
+            Sum LOK from matched outputs (i.e., incoming LOK):
             {{#found_our_outputs}}
-                {{sum_xmr}}
+                {{sum_lok}}
             {{/found_our_outputs}}
             {{^found_our_outputs}}
                 0.000000000000
             {{/found_our_outputs}}
-        </h3>
-        <h4>
-            <a href="{{shortcut_url}}" target="_blank">link to this page</a>
-        </h4>
-
+        </p>
+        <p>
+            <a href="{{shortcut_url}}" target="_blank">Link to this page</a>
+        </p>
     </div>
 
     {{#show_inputs}}
@@ -141,18 +139,18 @@
             {{/inputs}}
 
         </div>
-        <h3>
-            Sum XMR from matched and marked by * ring member's outputs: {{sum_mixin_xmr}}
+        <p>
+            Sum LOK from matched and marked by * ring member's outputs: {{sum_mixin_lok}}
             <br/>
-            <span style="font-size: 16px"> Possible spending is:
+            <span> Possible spending is:
                 {{possible_spending}} (tx fee included)
             </span>
                 <br/>
-            <span style="font-size: 14px">Note: without private spendkey,
+            <span>Note: without private spendkey,
                 it is impossible to know whether this is your real spending. <br/>
                 So do not take this number seriously.
                 It is probably totally wrong anyway.</span>
-        </h3>
+        </p>
     </div>
 
     {{/show_inputs}}

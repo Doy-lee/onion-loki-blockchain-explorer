@@ -1,6 +1,6 @@
-<div>
+<div class="Wrapper">
 
-    <div class="center">
+    <div>
         <br/>
         <h3 class="center">Signed Outputs Public Keys Checker</h3>
     </div>
@@ -14,17 +14,17 @@
     {{^has_error}}
         <h4>Output keys for address: {{address}}</h4>
         <h4>Viewkey: {{viewkey}}</h4>
-        {{#has_total_xmr}}
-            <h4>Total xmr: {{total_xmr}}</h4>
-        {{/has_total_xmr}}
+        {{#has_total_lok}}
+            <h4>Total lok: {{total_lok}}</h4>
+        {{/has_total_lok}}
 
-        <div class="center">
+        <div>
 
             <form method="post" style="width:100%; margin-top:15px" class="style-1">
-                <table class="center" style="width:80%">
-                    <tr>
-                        <td>Output no.</td>
-                        <td>Public key</td>
+                <table class="Table">
+                    <tr class="TableHeader">
+                        <td>Output No.</td>
+                        <td>Public Key</td>
                         <td>Timestamp</td>
                         <td>RingCT</td>
                         {{#are_key_images_known}}

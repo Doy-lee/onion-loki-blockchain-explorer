@@ -2,8 +2,8 @@
 // Created by mwo on 28/05/17.
 //
 
-#ifndef XMRBLOCKS_MEMPOOLSTATUS_H
-#define XMRBLOCKS_MEMPOOLSTATUS_H
+#ifndef LOKBLOCKS_MEMPOOLSTATUS_H
+#define LOKBLOCKS_MEMPOOLSTATUS_H
 
 
 #include "MicroCore.h"
@@ -16,7 +16,7 @@
 #include <mutex>
 #include <atomic>
 
-namespace xmreg
+namespace lokeg
 {
 
 struct MempoolStatus
@@ -39,8 +39,8 @@ struct MempoolStatus
 
         string fee_str;
         string payed_for_kB_str;
-        string xmr_inputs_str;
-        string xmr_outputs_str;
+        string lok_inputs_str;
+        string lok_outputs_str;
         string timestamp_str;
         string txsize;
 
@@ -122,7 +122,7 @@ struct MempoolStatus
     static atomic<uint64_t> mempool_size; // size in bytes.
 
     static bf::path blockchain_path;
-    static string deamon_url;
+    static string daemon_url;
     static cryptonote::network_type nettype;
 
     // make object for accessing the blockchain here
@@ -161,4 +161,4 @@ struct MempoolStatus
 };
 
 }
-#endif //XMRBLOCKS_MEMPOOLSTATUS_H
+#endif //LOKBLOCKS_MEMPOOLSTATUS_H

@@ -1,7 +1,6 @@
+<div class="Wrapper">
 
-<div>
-
-    <div class="center">
+    <div>
         <br/>
         <h3 class="center">Signed Key Images Checker</h3>
     </div>
@@ -20,11 +19,11 @@
         <div class="center">
 
             <form action="/genrawkeyimgs" method="post" style="width:100%; margin-top:15px" class="style-1">
-                <table class="center" style="width:80%">
-                    <tr>
-                        <td>Key no.</td>
-                        <td>Key image</td>
-                        <td>Is spent?</td>
+                <table class="Table">
+                    <tr class="TableHeader">
+                        <td>Key No.</td>
+                        <td>Key Image</td>
+                        <td>Is Spent?</td>
                     </tr>
                     {{#key_imgs}}
                     <input type="hidden" id="key_img_{{key_image}}" name="key_sig_pair_{{key_image}}" value="{{signature}}">
