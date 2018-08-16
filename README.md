@@ -22,10 +22,6 @@ Loki C++ libraries, but also demonstrates how to use:
  - [fmt](https://github.com/fmtlib/fmt) - Small, safe and fast string formatting library
 
 ## Onion Loki Blockchain Explorer features
-
-=======
-The key features of the Onion Loki Blockchain Explorer are:
-
  - no cookies, no web analytics trackers, no images,
  - by default no JavaScript, but can be enabled for client side decoding and proving transactions,
  - open sourced,
@@ -50,11 +46,11 @@ The key features of the Onion Loki Blockchain Explorer are:
 
 Current development branch:
 
- - https://github.com/moneroexamples/onion-monero-blockchain-explorer/tree/devel
+ - https://github.com/doy-lee/onion-loki-blockchain-explorer/tree/loki
 
 
 
-## Compilation on Ubuntu 16.04
+## Compilation on Ubuntu 16.04/18.04
 
 ##### Compile latest Loki development version
 

@@ -1,0 +1,59 @@
+
+<div class="Wrapper">
+    <h2 style="margin-bottom: 0px">Service Nodes </h2>
+
+    <h4 class="Subtitle">(No. of Service Nodes: {{service_node_active_size}})</h4>
+    <div class="TitleDivider"></div>
+
+      <table style="width:100%">
+          <tr class="TableHeader">
+              <td>Public Key</td>
+              <td>No. Contributors</td>
+              <td>Operator Cut (%)</td>
+              <td>Staking Requirement</td>
+              <td>Last Reward At (Block Height/TX Index)</td>
+              <td>Last Uptime Proof</td>
+          </tr>
+
+          {{#service_node_active_array}}
+          <tr>
+              <td><a href="/service_node/{{public_key}}">{{public_key}}</a></td>
+              <td>{{num_contributors}}</td>
+              <td>{{operator_cut}}</td>
+              <td>{{staking_requirement}}</td>
+              <td>{{last_reward_at_block}}/{{last_reward_at_block_tx_index}}</td>
+              <td>{{last_uptime_proof}}</td>
+          </tr>
+          {{/service_node_active_array}}
+      </table>
+
+      <h2 style="margin-bottom: 0px">Service Nodes Awaiting</h2>
+      <h4 class="Subtitle">(No. of Service Nodes awaiting contribution: {{service_node_awaiting_size}})</h4>
+      <div class="TitleDivider"></div>
+
+      <table style="width:100%">
+          <tr class="TableHeader">
+              <td>Public Key</td>
+              <td>No. Contributors</td>
+              <td>Operator Cut (%)</td>
+              <td>Amount Open For Contribution</td>
+              <td>Total Contributed</td>
+              <td>Total Reserved</td>
+              <td>Staking Requirement</td>
+          </tr>
+
+          {{#service_node_awaiting_array}}
+          <tr>
+              <td><a href="/service_node/{{public_key}}">{{public_key}}</a></td>
+              <td>{{num_contributors}}</td>
+              <td>{{operator_cut}}</td>
+              <td>{{open_for_contribution}}</td>
+              <td>{{total_contributed}}</td>
+              <td>{{total_reserved}}</td>
+              <td>{{staking_requirement}}</td>
+          </tr>
+          {{/service_node_awaiting_array}}
+      </table>
+
+      <a href="/service_nodes">{{service_node_link_text}}</a>
+</div> <!-- Wrapper -->

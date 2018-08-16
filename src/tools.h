@@ -373,6 +373,12 @@ pause_execution(uint64_t no_seconds, const string& text = "now");
 string
 make_comma_sep_number(uint64_t value);
 
+std::string
+bytes_to_hex(char const *bytes, int len);
+
+void
+get_human_readable_timestamp(uint64_t ts, std::string *result);
+
 }
 
 #endif //LOKEG01_TOOLS_H

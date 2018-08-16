@@ -186,6 +186,9 @@ public:
     bool
     get_block(string const& blk_hash, block& blk, string& error_msg);
 
+    bool
+    get_service_node(COMMAND_RPC_GET_SERVICE_NODES::response &res, const std::vector<std::string> &pubkeys);
+
 };
 
 

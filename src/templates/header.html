@@ -20,9 +20,14 @@
     <div>
         <h1 class="Header"><a href="/">Loki Blockchain Explorer</a></h1>
         <h4 class="Subtitle" style="margin-bottom: 0px">({{^enable_js}}No Javascript | {{/enable_js}}No Cookies | No Web Analytics Trackers | No Images | Open Sourced)</h4>
-        <form action="/search" method="get" style="width: 100%; margin-top:15px; margin-bottom: 1em;" class="style-1">
+        <form action="/search" method="get" style="width: 100%; margin-top:15px;" class="style-1">
             <input type="text" name="value" size="120"
                    placeholder="Block Height, Block Hash, Transaction Hash">
+            <input type="submit" class="PageButton" value="Search">
+        </form>
+        <form action="/search_service_node" method="get" style="width: 100%; margin-top:15px; margin-bottom: 1em;" class="style-1">
+            <input type="text" name="value" size="120"
+                   placeholder="Service Node Public Key">
             <input type="submit" class="PageButton" value="Search">
         </form>
         <div class="TitleDivider" style="margin-bottom: 1em"></div>

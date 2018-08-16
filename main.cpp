@@ -158,7 +158,7 @@ main(int ac, const char* av[])
 
     // initialize mcore and core_storage
     if (!lokeg::init_blockchain(blockchain_path.string(),
-                               mcore, core_storage))
+                               mcore, core_storage, nettype))
     {
         cerr << "Error accessing blockchain." << endl;
         return EXIT_FAILURE;
@@ -311,6 +311,23 @@ main(int ac, const char* av[])
      {
         return lokblocks.show_tx(remove_bad_chars(tx_hash), with_ring_signatures);
     });
+
+    CROW_ROUTE(app, "/service_node/<string>")
+    ([&](const crow::request& req, std::string service_node_pubkey) {
+        return crow::response(lokblocks.show_service_node(remove_bad_chars(service_node_pubkey)));
+    });
+
+    CROW_ROUTE(app, "/service_nodes")
+    ([&](const crow::request& req) {
+        return lokblocks.service_nodes(true /*add_header_and_footer*/);
+    });
+
+    // TODO(loki): This should be combined into the normal search mechanism, we shouldn't have 2 search bars.
+    CROW_ROUTE(app, "/search_service_node").methods("GET"_method)
+    ([&](const crow::request& req) {
+        return lokblocks.show_service_node(remove_bad_chars(string(req.url_params.get("value"))));
+    });
+
 
     CROW_ROUTE(app, "/myoutputs").methods("POST"_method)
     ([&](const crow::request& req)

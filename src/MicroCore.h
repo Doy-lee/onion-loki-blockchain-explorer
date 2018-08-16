@@ -30,16 +30,19 @@ namespace lokeg
 
         Blockchain m_blockchain_storage;
         tx_memory_pool m_mempool;
-        service_nodes::service_node_list m_service_node_list;
         loki::deregister_vote_pool m_deregister_vote_pool;
 
         hw::device* m_device;
 
+        network_type nettype;
+
     public:
+        service_nodes::service_node_list m_service_node_list;
+
         MicroCore();
 
         bool
-        init(const string& _blockchain_path);
+        init(const string& _blockchain_path, network_type nt);
 
         Blockchain&
         get_core();
@@ -79,11 +82,11 @@ namespace lokeg
 
 
 
-
     bool
     init_blockchain(const string& path,
                     MicroCore& mcore,
-                    Blockchain*& core_storage);
+                    Blockchain*& core_storage,
+                    network_type nt);
 
 
 }

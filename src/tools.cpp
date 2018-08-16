@@ -1307,4 +1307,38 @@ make_comma_sep_number(uint64_t value)
     return result;
 }
 
+std::string bytes_to_hex(char const *bytes, int len)
+{
+    std::string result;
+    result.reserve(len * 2);
+
+    static char const _4bits_to_hex_char[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    for (int i = 0; i < len; i++)
+    {
+      char byte  = bytes[i];
+      char hex01 = (byte >> 0) & 0xF;
+      char hex02 = byte >> 4;
+
+      result.push_back(_4bits_to_hex_char[hex01]);
+      result.push_back(_4bits_to_hex_char[hex02]);
+    }
+
+    return result;
+}
+
+void
+get_human_readable_timestamp(uint64_t ts, std::string *result)
+{
+    result->clear();
+    if (ts < 1234567890)
+        return;
+
+    char buf[64];
+    time_t tt = ts;
+    struct tm tm;
+    gmtime_r(&tt, &tm);
+    strftime(buf, sizeof(buf), "%Y-%m-%d %I:%M:%S", &tm);
+    *result = buf;
+}
+
 }
