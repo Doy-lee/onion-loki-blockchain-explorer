@@ -1308,6 +1308,7 @@ public:
 
         // get block size in bytes
         uint64_t blk_size = core_storage->get_db().get_block_size(_blk_height);
+        uint64_t blk_diff = core_storage->get_db().get_block_difficulty(_blk_height);
 
         // miner reward tx
         transaction coinbase_tx = blk.miner_tx;
@@ -1347,6 +1348,7 @@ public:
                 {"minor_ver"            , std::to_string(blk.minor_version)},
                 {"blk_size"             , fmt::format("{:0.4f}",
                                                       static_cast<double>(blk_size) / 1024.0)},
+                {"blk_diff"             , blk_diff}
         };
         context.emplace("coinbase_txs", mstch::array{{txd_coinbase.get_mstch_map()}});
         context.emplace("blk_txs"     , mstch::array());
